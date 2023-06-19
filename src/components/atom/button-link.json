@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_atomic_button_links",
+  "info": {
+    "displayName": "ButtonLink",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "newTab": {
+      "type": "boolean"
+    },
+    "text": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "ghost"
+      ]
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "cms",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Krung Thai Develop",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@strapi/plugin-documentation": "^4.11.1",
+    "@strapi/plugin-i18n": "4.11.1",
+    "@strapi/plugin-users-permissions": "4.11.1",
+    "@strapi/strapi": "4.11.1",
+    "mysql": "2.18.1",
+    "strapi-plugin-graphs-builder": "^1.0.0",
+    "strapi-plugin-navigation": "^2.2.11",
+    "strapi-plugin-populate-deep": "^2.0.0",
+    "strapi-plugin-sitemap": "^2.0.10",
+    "strapi-plugin-slugify": "^2.3.2"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "bb6d50aa-71cc-474f-975a-11a2cbaf3477"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

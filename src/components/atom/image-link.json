@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_atomic_image_links",
+  "info": {
+    "displayName": "ImageLink"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "newTab": {
+      "type": "boolean"
+    },
+    "text": {
+      "type": "string"
+    },
+    "imageName": {
+      "type": "enumeration",
+      "enum": [
+        "Mail",
+        "Youtube",
+        "Facebook"
+      ]
+    }
+  }
+}
