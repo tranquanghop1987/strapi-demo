@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-06-19T08:52:07.198Z"
+    "x-generation-date": "2023-06-22T03:05:18.816Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -86,6 +86,44 @@
           }
         }
       },
+      "ArticleLocalizationRequest": {
+        "required": [
+          "locale"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "publish_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "feature_image": {
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "example": "string or id"
+          },
+          "description": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "sitemap_exclude": {
+            "type": "boolean"
+          }
+        }
+      },
       "ArticleRequest": {
         "type": "object",
         "required": [
@@ -119,8 +157,79 @@
               "slug": {
                 "type": "string"
               },
+              "locale": {
+                "type": "string"
+              },
               "sitemap_exclude": {
                 "type": "boolean"
+              }
+            }
+          }
+        }
+      },
+      "ArticleResponseDataObjectLocalized": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Article"
+          }
+        }
+      },
+      "ArticleLocalizationResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ArticleResponseDataObjectLocalized"
+          },
+          "meta": {
+            "type": "object"
+          }
+        }
+      },
+      "ArticleListResponseDataItemLocalized": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Article"
+          }
+        }
+      },
+      "ArticleLocalizationListResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ArticleListResponseDataItemLocalized"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "pagination": {
+                "type": "object",
+                "properties": {
+                  "page": {
+                    "type": "integer"
+                  },
+                  "pageSize": {
+                    "type": "integer",
+                    "minimum": 25
+                  },
+                  "pageCount": {
+                    "type": "integer",
+                    "maximum": 1
+                  },
+                  "total": {
+                    "type": "integer"
+                  }
+                }
               }
             }
           }
@@ -863,6 +972,20 @@
                 }
               }
             }
+          },
+          "localizations": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Article"
+                }
+              }
+            }
+          },
+          "locale": {
+            "type": "string"
           },
           "sitemap_exclude": {
             "type": "boolean"
@@ -1953,6 +2076,18 @@
                           }
                         }
                       },
+                      "localizations": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "array",
+                            "items": {}
+                          }
+                        }
+                      },
+                      "locale": {
+                        "type": "string"
+                      },
                       "sitemap_exclude": {
                         "type": "boolean"
                       }
@@ -2183,6 +2318,32 @@
           }
         }
       },
+      "GlobalLocalizationRequest": {
+        "required": [
+          "locale"
+        ],
+        "type": "object",
+        "properties": {
+          "footerSection": {
+            "$ref": "#/components/schemas/LayoutFooterComponent"
+          },
+          "telephone": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "facebook_page": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "sitemap_exclude": {
+            "type": "boolean"
+          }
+        }
+      },
       "GlobalRequest": {
         "type": "object",
         "required": [
@@ -2195,8 +2356,88 @@
               "footerSection": {
                 "$ref": "#/components/schemas/LayoutFooterComponent"
               },
+              "telephone": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "facebook_page": {
+                "type": "string"
+              },
+              "locale": {
+                "type": "string"
+              },
               "sitemap_exclude": {
                 "type": "boolean"
+              }
+            }
+          }
+        }
+      },
+      "GlobalResponseDataObjectLocalized": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Global"
+          }
+        }
+      },
+      "GlobalLocalizationResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/GlobalResponseDataObjectLocalized"
+          },
+          "meta": {
+            "type": "object"
+          }
+        }
+      },
+      "GlobalListResponseDataItemLocalized": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Global"
+          }
+        }
+      },
+      "GlobalLocalizationListResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GlobalListResponseDataItemLocalized"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "pagination": {
+                "type": "object",
+                "properties": {
+                  "page": {
+                    "type": "integer"
+                  },
+                  "pageSize": {
+                    "type": "integer",
+                    "minimum": 25
+                  },
+                  "pageCount": {
+                    "type": "integer",
+                    "maximum": 1
+                  },
+                  "total": {
+                    "type": "integer"
+                  }
+                }
               }
             }
           }
@@ -2254,6 +2495,15 @@
           "footerSection": {
             "$ref": "#/components/schemas/LayoutFooterComponent"
           },
+          "telephone": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "facebook_page": {
+            "type": "string"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -2299,6 +2549,20 @@
                 }
               }
             }
+          },
+          "localizations": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Global"
+                }
+              }
+            }
+          },
+          "locale": {
+            "type": "string"
           },
           "sitemap_exclude": {
             "type": "boolean"
@@ -4276,6 +4540,98 @@
         "operationId": "delete/articles/{id}"
       }
     },
+    "/articles/{id}/localizations": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArticleLocalizationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Article"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "operationId": "post/articles/{id}/localizations",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArticleLocalizationRequest"
+              }
+            }
+          }
+        }
+      }
+    },
     "/authors": {
       "get": {
         "responses": {
@@ -5101,6 +5457,87 @@
         ],
         "parameters": [],
         "operationId": "delete/global"
+      }
+    },
+    "/global/localizations": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GlobalLocalizationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Global"
+        ],
+        "parameters": [],
+        "operationId": "post/global/localizations",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GlobalLocalizationRequest"
+              }
+            }
+          }
+        }
       }
     },
     "/pages": {

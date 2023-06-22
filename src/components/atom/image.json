@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_atom_images",
+  "info": {
+    "displayName": "Image"
+  },
+  "options": {},
+  "attributes": {
+    "file": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "text": {
+      "type": "string"
+    },
+    "altText": {
+      "type": "string"
+    }
+  }
+}
