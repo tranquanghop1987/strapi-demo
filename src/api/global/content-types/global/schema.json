@@ -49,6 +49,16 @@
         }
       },
       "type": "string"
+    },
+    "Nav": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "element.link-group"
     }
   }
 }

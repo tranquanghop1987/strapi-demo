@@ -8,7 +8,7 @@
   "attributes": {
     "links": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "atom.link"
     },
     "text": {

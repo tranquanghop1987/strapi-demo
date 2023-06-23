@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-06-22T03:05:18.816Z"
+    "x-generation-date": "2023-06-23T03:01:39.334Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2336,6 +2336,12 @@
           "facebook_page": {
             "type": "string"
           },
+          "Nav": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ElementLinkGroupComponent"
+            }
+          },
           "locale": {
             "type": "string"
           },
@@ -2364,6 +2370,12 @@
               },
               "facebook_page": {
                 "type": "string"
+              },
+              "Nav": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ElementLinkGroupComponent"
+                }
               },
               "locale": {
                 "type": "string"
@@ -2503,6 +2515,12 @@
           },
           "facebook_page": {
             "type": "string"
+          },
+          "Nav": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ElementLinkGroupComponent"
+            }
           },
           "createdAt": {
             "type": "string",
@@ -3385,6 +3403,37 @@
                 }
               }
             }
+          }
+        }
+      },
+      "ElementLinkGroupComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "newTab": {
+                  "type": "boolean"
+                },
+                "text": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "text": {
+            "type": "string"
           }
         }
       },
