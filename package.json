@@ -7,7 +7,8 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "admin": "strapi develop --watch-admin"
   },
   "devDependencies": {},
   "dependencies": {
@@ -20,17 +21,18 @@
     "strapi-plugin-navigation": "^2.2.11",
     "strapi-plugin-populate-deep": "^2.0.0",
     "strapi-plugin-sitemap": "^2.0.10",
-    "strapi-plugin-slugify": "^2.3.2"
+    "strapi-plugin-slugify": "^2.3.2",
+    "strapi-plugin-todo": "^0.0.9"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Team KBTL"
   },
   "strapi": {
     "uuid": "bb6d50aa-71cc-474f-975a-11a2cbaf3477"
   },
   "engines": {
-    "node": "18.x",
-    "npm": "9.x"
+    "node": ">=14.19.1 <=16.x.x",
+    "npm": ">=6.0.0"
   },
   "license": "MIT"
 }

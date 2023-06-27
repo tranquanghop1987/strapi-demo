@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "articles",
+  "collectionName": "products",
   "info": {
-    "singularName": "article",
-    "pluralName": "articles",
-    "displayName": "Article",
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
     "description": ""
   },
   "options": {
@@ -16,7 +16,19 @@
     }
   },
   "attributes": {
-    "title": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "base",
+        "service"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "name": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -24,7 +36,7 @@
         }
       }
     },
-    "feature_image": {
+    "featured_image": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -47,29 +59,6 @@
           "localized": true
         }
       }
-    },
-    "slug": {
-      "type": "uid"
-    },
-    "type": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "enumeration",
-      "enum": [
-        "news",
-        "press"
-      ]
-    },
-    "tag": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
     }
   }
 }
